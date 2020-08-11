@@ -1,10 +1,2 @@
-node {
-  stage('SCM') {
-    git 'https://github.com/nmittal020695/Vechicle_Store.git'
-  }
-  stage('SonarQube analysis') {
-    withSonarQubeEnv(credentialsId: '34659645e6d24ffd3a2ae52cde102e945ed72f6d', installationName: 'Test') { // You can override the credential to be used
-      sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2.0.1227:sonar'
-    }
-  }
-}
+sonar.projectKey=github-jenkins-sonar
+sonar.sources=./src
