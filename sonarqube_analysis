@@ -1,6 +1,6 @@
 node {
   stage('SCM') {
-    git 'https://github.com/nmittal020695/Vechicle_Store/edit/master'
+    git 'https://github.com/nmittal020695/Vechicle_Store.git'
   }
   stage('SonarQube analysis') {
     withSonarQubeEnv(credentialsId: '34659645e6d24ffd3a2ae52cde102e945ed72f6d', installationName: 'Test') { // You can override the credential to be used
