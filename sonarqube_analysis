@@ -1,2 +1,10 @@
-sonar.projectKey=github-jenkins-sonar
-sonar.sources=./src
+node {
+  stage('SCM') {
+    git 'https://github.com/nmittal020695/Vechicle_Store.git'
+  }
+  stage('SonarQube analysis') {
+    withSonarQubeEnv(credentialsId: 'ecc0ddb6381bb9817dd757228206d42b91224e70', installationName: 'Test') { // You can override the credential to be used
+      sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
+    }
+  }
+}
